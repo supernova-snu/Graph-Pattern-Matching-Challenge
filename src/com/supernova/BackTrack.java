@@ -22,22 +22,28 @@ public class BackTrack {
 
         System.out.println("t " + query.getNumNodes());
 
-        int i=0;
         int flag;
         ArrayList<Integer> currentPath = new ArrayList<>(query.getNumNodes());
-
+        // 지나온 경로에 대한 번째 수
+        ArrayList<Integer> tempIndex = new ArrayList<Integer>(Collections.nCopies(query.getNumNodes(),-1));
+        Integer nextVertexId;
         // BackTracking
-        while(i>-1){
-
+        while(currentPath.size()<query.getNumNodes()){
             flag = 0;
             ArrayList<Integer> possibleNextVertices = findPossibleVerticeIds(currentPath);
-
             // 가능한 x_i에 대한 반복문
-            for(Integer nextVertex : possibleNextVertices){
+            //System.out.println("currentPath: "+currentPath+", tempIndex"+tempIndex);
+
+            for(Integer i=tempIndex.get(currentPath.size())+1;i<possibleNextVertices.size();i++){
+
+                nextVertexId = possibleNextVertices.get(i);
                 // 현재 유효할 때
-                if(isPossiblePath(currentPath,nextVertex)){
+                if(isPossiblePath(currentPath,nextVertexId)){
+
                     flag = 1;
-                    currentPath.add(nextVertex);
+                    tempIndex.set(currentPath.size(),i);
+                    currentPath.add(nextVertexId);
+
                     // matching 성공
                     if(currentPath.size() == query.getNumNodes()){
                         System.out.print("a");
@@ -45,16 +51,19 @@ public class BackTrack {
                             System.out.print(" "+matchingVertices);
                         }
                         System.out.println();
-                        return;
-                    }
+                        flag = 0;
 
-                    i=i+1;
+                    }
                     break;
                 }
             }
-            // 위에서 유효한 nextVertice가 없을 때
+            // 위에서 유효한 nextVertice가 없을 때 마지막 원소를 없애고 재 진행
             if(flag==0){
-                i=i-1;
+                if(currentPath.size()==0) return;
+                if(currentPath.size()<query.getNumNodes()) {
+                    tempIndex.set(currentPath.size(), -1);
+                }
+                currentPath.remove(currentPath.size()-1);
             }
         }
 
