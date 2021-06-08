@@ -1,6 +1,24 @@
 package com.supernova;
-
+import java.util.*;
 public class CandidateSet {
+
+    // mappingSet 의 index는 queryId, 원소는 mapping된 data vertices id 배열
+    ArrayList<ArrayList<Integer>> mappingSet;
+
+    public CandidateSet(ArrayList<ArrayList<Integer>> mappingSet){
+        this.mappingSet = mappingSet;
+    }
+
+    public void printCandidateSet() {
+        System.out.println("===Candidate Set===");
+        for (Integer i=0;i<mappingSet.size();i++) {
+            System.out.print("QueryId "+ i+" : ");
+            for(Integer dataVerticesId : this.mappingSet.get(i)){
+                System.out.print(dataVerticesId+",");
+            }
+            System.out.println();
+        }
+    }
 }
 
 /*

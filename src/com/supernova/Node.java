@@ -21,6 +21,11 @@ public class Node implements Comparable<Node> {
         this.neighbors = new ArrayList<>();
     }
 
+    Node(int id, ArrayList<Node> neighbors ){
+        this.id = id;
+        this.neighbors = neighbors;
+    }
+
     @Override
     public boolean equals(Object obj) {
         Node _obj = (Node) obj;
