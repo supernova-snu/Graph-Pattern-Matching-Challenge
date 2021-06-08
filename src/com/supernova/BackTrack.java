@@ -20,6 +20,8 @@ public class BackTrack {
 
     public void printAllMatches() {
 
+        int count = 0; // for exit program after count >= 100,000
+
         System.out.println("t " + query.getNumNodes());
 
         int flag;
@@ -52,7 +54,10 @@ public class BackTrack {
                         }
                         System.out.println();
                         flag = 0;
-
+                        count++;
+                        if(count>=100000){ // 100000개 이상 출력시 강제종료
+                            System.exit(0);
+                        }
                     }
                     break;
                 }
