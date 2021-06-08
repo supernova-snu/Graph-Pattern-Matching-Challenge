@@ -1,7 +1,7 @@
 # Graph-Pattern-Matching-Challenge
 
-기존의 c++로 작성되었던 파일을 모두 지우고 java로 새로 구현했습니다.
-기존의 만들어주셨던 input file folder만 가지고있습니다.
+기존의 c++ 스켈레톤 코드 디렉토리를 제거하고, java로 새로 구현했습니다.
+원래 제공된 input file 디렉토리는 남아있습니다.
 
 ## 팀 supernova
 ### 2018-16169 신동민 (기계공학과 주전공, 컴퓨터공학부 부전공)
