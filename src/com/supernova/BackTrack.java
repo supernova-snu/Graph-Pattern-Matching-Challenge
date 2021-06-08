@@ -2,7 +2,7 @@ package com.supernova;
 import java.util.*;
 /*
 * queryId 0부터 끝까지 시행
-* 새로운 vertex를 받을 때 이전 queryId들에 대해 연결되는 것이 없는지 다시 돌아가서 체크(BackTracking)
+* 새로운 vertex를 받을 때 이전 queryId들에 대해 연결되는 것이 없는지 다시 돌아가서 체크
 * 만약 currentPath에 해당하는 queryId에 대한 dataVertex가 있으면 valid
 * valid 체크를 하며 currentPath 가 다 채워지면 print
 * */
